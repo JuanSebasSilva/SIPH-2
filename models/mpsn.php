@@ -50,40 +50,40 @@ class Mpsn{
         return $this->$fhnapsn;
     }
 
-    public function setIdpsn(){
+    public function setIdpsn($idpsn){
         $this->idpsn = $idpsn;
     }
-    public function setNompsn(){
+    public function setNompsn($nompsn){
         $this->nompsn = $nompsn;
     }
-    public function setApepsn(){
+    public function setApepsn($apepsn){
         $this->apepsn = $apepsn;
     }
-    public function setDocpsn(){
+    public function setDocpsn($docpsn){
         $this->docpsn = $docpsn;
     }
-    public function setTpdcpsn(){
+    public function setTpdcpsn($tpdcpsn){
         $this->tpdcpsn = $tpdcpsn;
     }
-    public function setTelpsn(){
+    public function setTelpsn($telpsn){
         $this->telpsn = $telpsn;
     }
-    public function setEmapsn(){
+    public function setEmapsn($emapsn){
         $this->emapsn = $emapsn;
     }
-    public function setPasspsn(){
+    public function setPasspsn($passpsn){
         $this->passpsn = $passpsn;
     }
-    public function setActpsn(){
+    public function setActpsn($actpsn){
         $this->actpsn = $actpsn;
     }
-    public function setIdper(){
+    public function setIdper($idper){
         $this->idper = $idper;
     }
-    public function setGenpsn(){
+    public function setGenpsn($genpsn){
         $this->genpsn = $genpsn;
     }
-    public function setFhnapsn(){
+    public function setFhnapsn($fhnapsn){
         $this->fhnapsn = $fhnapsn;
     }
 
