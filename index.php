@@ -29,7 +29,7 @@
                 <label for="emapsn">Correo Electronico</label>
                 <input type="email" id="emapsn" name="usu" required>
                 <label for="paspsn">Contraseña</label>
-                <input type="password" id="paspsn" name="pas" required>
+                <input type="password" id="paspsn" name="pss" required>
                 <?php
                     $err = isset($_GET['error']) ? $_GET['error']:NULL;
                     if($error == 'ok'){
