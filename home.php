@@ -1,3 +1,4 @@
+<?php require_once("models/seg.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
