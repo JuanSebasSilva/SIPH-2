@@ -99,6 +99,74 @@ nav {
     display: block;
 }
 
+/* Luis Dueñas */
+.noti{
+    padding: 30px;
+    background:#0f2440c2;
+    font-size: 14px;
+    width: 100%;
+    max-width: 500px;
+    box-sizing:border-box;
+    border-radius: 10px;
+}
+
+.fondo{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/img/img.jpg);
+    background-size: cover;
+    height: 100%;
+    margin: -10px;
+}
+
+.fondo2{
+    background-image: url(/img/img.jpg);
+    background-size: cover;
+    height: 100%;
+    margin: -10px;
+}
+
+.l{
+    text-shadow: 1px 1px 1px #666;
+    color: white;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+.espacios{
+    display: block;
+    padding: 13px 0;
+    color: white;
+    text-shadow: 1px 1px 1px #666;
+}
+
+.boton{
+   border-radius: 5px;
+   padding: 5px;
+   margin-top: 15px;
+   width: 15%;
+}
+
+.barra{
+    width: 97%;
+    height: 29px;
+}
+
+.op{
+    height:30px ;
+    width: 97%;
+}
+
+.btn btn-primary{
+    background-color: red;
+}
+/* Luis Dueñas */
+
 @media screen and (min-width: 768px) {
     .logo2 {
         height: 100px;
