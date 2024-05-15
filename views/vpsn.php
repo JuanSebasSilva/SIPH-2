@@ -67,6 +67,6 @@
                 <a href="home.php?pg= &ope=edit&id=<?=$dt['idpsn']?>" title="Editar">Editar</a>
             </td>
         </tr>
-        <?php }}?>
+        <?php }} ?>
     </tbody>
 </table>

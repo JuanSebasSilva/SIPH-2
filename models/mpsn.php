@@ -13,83 +13,89 @@ class Mpsn{
     private $genpsn;
     private $fhnapsn;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 
-    public function getIdpsn(){
+    function getIdpsn(){
         return $this->$idpsn;
     }
-    public function getNompsn(){
+    function getNompsn(){
         return $this->$nompsn;
     }
-    public function getApepsn(){
+    function getApepsn(){
         return $this->$apepsn;
     }
-    public function getDocpsn(){
+    function getDocpsn(){
         return $this->$docpsn;
     }
-    public function getTpdcpsn(){
+    function getTpdcpsn(){
         return $this->$tpdcpsn;
     }
-    public function getTelpsn(){
+    function getTelpsn(){
         return $this->$telpsn;
     }
-    public function getEmapsn(){
+    function getEmapsn(){
         return $this->$emapsn;
     }
-    public function getPasspsn(){
+    function getPasspsn(){
         return $this->$passpsn;
     }
-    public function getActpsn(){
+    function getActpsn(){
         return $this->$actpsn;
     }
-    public function getIdper(){
+    function getIdper(){
         return $this->$idper;
     }
-    public function getGenpsn(){
+    function getGenpsn(){
         return $this->$genpsn;
     }
-    public function getFhnapsn(){
+    function getFhnapsn(){
         return $this->$fhnapsn;
     }
 
-    public function setIdpsn($idpsn){
+    function setIdpsn($idpsn){
         $this->idpsn = $idpsn;
     }
-    public function setNompsn($nompsn){
+    function setNompsn($nompsn){
         $this->nompsn = $nompsn;
     }
-    public function setApepsn($apepsn){
+    function setApepsn($apepsn){
         $this->apepsn = $apepsn;
     }
-    public function setDocpsn($docpsn){
+    function setDocpsn($docpsn){
         $this->docpsn = $docpsn;
     }
-    public function setTpdcpsn($tpdcpsn){
+    function setTpdcpsn($tpdcpsn){
         $this->tpdcpsn = $tpdcpsn;
     }
-    public function setTelpsn($telpsn){
+    function setTelpsn($telpsn){
         $this->telpsn = $telpsn;
     }
-    public function setEmapsn($emapsn){
+    function setEmapsn($emapsn){
         $this->emapsn = $emapsn;
     }
-    public function setPasspsn($passpsn){
+    function setPasspsn($passpsn){
         $this->passpsn = $passpsn;
     }
-    public function setActpsn($actpsn){
+    function setActpsn($actpsn){
         $this->actpsn = $actpsn;
     }
-    public function setIdper($idper){
+    function setIdper($idper){
         $this->idper = $idper;
     }
-    public function setGenpsn($genpsn){
+    function setGenpsn($genpsn){
         $this->genpsn = $genpsn;
     }
-    public function setFhnapsn($fhnapsn){
+    function setFhnapsn($fhnapsn){
         $this->fhnapsn = $fhnapsn;
     }
 
     public function getAll(){
         $res = NULL;
-        $sql = "SELECT * FROM persona";
+        $sql = "SELECT ps.idpsn, ps.nompsn, ps.apepsn, ps.docpsn, ps.tpdcpsn, ps.telpsn, ps.emapsn, ps.passpsn, ps.actpsn, ps.genpsn, ps.fhnapsn,
+        pf.idper, pf.nomper, pf.pagini,
+        td.idval AS tdiv, td.nomval AS tdnv, 
+        gv.idval AS gviv, gv.nomval AS gvnv
+        FROM persona AS ps INNER JOIN valor AS td ON ps.tpdcpsn=td.idval 
+        INNER JOIN valor AS gv ON ps.genpsn=gv.idval
+        INNER JOIN perfil AS pf ON ps.idper=pf.idper";
         $modelo = new Conexion();
         $conexion = $modelo->get_conexion();
         $result = $conexion->prepare($sql);
@@ -100,7 +106,13 @@ class Mpsn{
 
     public function getOne(){
         $res = NULL;
-        $sql = "SELECT * FROM persona WHERE idpsn=:idpsn";
+        $sql = "SELECT ps.idpsn, ps.nompsn, ps.apepsn, ps.docpsn, ps.tpdcpsn, ps.telpsn, ps.emapsn, ps.passpsn, ps.actpsn, ps.genpsn, ps.fhnapsn,
+        pf.idper, pf.nomper, pf.pagini,
+        td.idval AS tdiv, td.nomval AS tdnv, 
+        gv.idval AS gviv, gv.nomval AS gvnv
+        FROM persona AS ps INNER JOIN valor AS td ON ps.tpdcpsn=td.idval 
+        INNER JOIN valor AS gv ON ps.genpsn=gv.idval
+        INNER JOIN perfil AS pf ON ps.idper=pf.idper WHERE ps.idpsn=:idpsn";
         $modelo = new Conexion();
         $conexion = $modelo->get_conexion();
         $result = $conexion->prepare($sql);
@@ -112,7 +124,8 @@ class Mpsn{
     }
 
     public function save(){
-        $sql = "INSERT INTO persona(nompsn, apepsn, docpsn, tpdcpsn, telpsn, emapsn, passpsn, actpsn, idper, genpsn, fhnapsn) VALUES (:nompsn, :apepsn, :docpsn, :tpdcpsn, :telpsn, :emapsn, :passpsn, :actpsn, :idper, :genpsn, :fhnapsn)";
+        $sql = "INSERT INTO persona(nompsn, apepsn, docpsn, tpdcpsn, telpsn, emapsn, passpsn, actpsn, idper, genpsn, fhnapsn) 
+                VALUES (:nompsn, :apepsn, :docpsn, :tpdcpsn, :telpsn, :emapsn, :passpsn, :actpsn, :idper, :genpsn, :fhnapsn)";
         $modelo = new Conexion();
         $conexion = $modelo->get_conexion();
         $result = $conexion->prepare($sql);
@@ -142,7 +155,8 @@ class Mpsn{
     }
 
     public function edit(){
-        $sql = "UPDATE persona SET nompsn=:nompsn, apepsn=:apepsn, docpsn=:docpsn, tpdcpsn=:tpdcpsn, telpsn=:telpsn, emapsn=:emapsn, passpsn=:passpsn, actpsn=:actpsn, idper=:idper, genpsn=:genpsn, fhnapsn=:fhnapsn WHERE idpsn=:idpsn";
+        $sql = "UPDATE persona SET nompsn=:nompsn, apepsn=:apepsn, docpsn=:docpsn, tpdcpsn=:tpdcpsn, telpsn=:telpsn, emapsn=:emapsn, 
+                passpsn=:passpsn, actpsn=:actpsn, idper=:idper, genpsn=:genpsn, fhnapsn=:fhnapsn WHERE idpsn=:idpsn";
         $modelo = new Conexion();
         $conexion = $modelo->get_conexion();
         $result = $conexion->prepare($sql);

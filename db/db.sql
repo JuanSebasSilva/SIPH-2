@@ -4,7 +4,7 @@ USE siph;
 CREATE TABLE configuracion(idcon INT(2) PRIMARY KEY AUTO_INCREMENT, nitcon VARCHAR(255), titcon VARCHAR(100), imgcon VARCHAR(255), descon VARCHAR(255), piecon VARCHAR(255));
 CREATE TABLE perfil(idper INT(5) PRIMARY KEY, nomper VARCHAR(50), pagini INT(5));
 CREATE TABLE periodo(idprd BIGINT(7) PRIMARY KEY AUTO_INCREMENT, finiprd DATE, ffinprd DATE, actprd TINYINT(1));
-CREATE TABLE pagina(idpag INT(5) PRIMARY KEY, nompag VARCHAR(255), rutpag VARCHAR(255), mospag TINYINT(1), ordpag INT(5), icopag VARCHAR(255));
+CREATE TABLE pagina(idpag INT(5) PRIMARY KEY, nompag VARCHAR(255), rutpag VARCHAR(255), mospag TINYINT(1), ordpag TININT(1), icopag VARCHAR(255));
 CREATE TABLE dominio(iddom INT(5) PRIMARY KEY AUTO_INCREMENT, nomdom VARCHAR(255));
 CREATE TABLE vivienda(idviv INT(5) PRIMARY KEY AUTO_INCREMENT, idpsn BIGINT(20), tpoviv INT(5), nomviv VARCHAR(50), depviv INT(5));
 CREATE TABLE notificacion(idnot BIGINT(20) PRIMARY KEY AUTO_INCREMENT, titnot VARCHAR(50), fhnot DATETIME, ffinnot DATETIME, desnot TEXT, idpsn BIGINT(20));
