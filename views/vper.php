@@ -91,4 +91,3 @@
         <?php }} ?>
     </tbody>
 </table>
-<script type="text/javascript">ocultar(<?=$m;?>)</script>
