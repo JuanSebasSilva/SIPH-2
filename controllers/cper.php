@@ -15,9 +15,11 @@
         else $mper->save();
     }
 
+    //$m = 2;
     if($ope=="del" && $idper) $mper->del();
     if($ope=="edit" && $idper){
         $dtOne = $mper->getOne();
+        //$m = 1;
     }else{
         $dtOne = NULL;
     }

@@ -39,11 +39,13 @@
         <?php if($dat){ foreach($dat as $dt){ ?>
         <tr>
             <td><?=$dt['idper']; ?></td>
-            <?php
-                $mper->setIdper($dt['idper']);
-                $cant = $mper->getCantpg();
-            ?>
-            <td><?=$dt['nomper']; ?></td>
+            <td>
+                <?php
+                    $mper->setIdper($dt['idper']);
+                    $cant = $mper->getCantpg();
+                ?>
+                <?=$dt['nomper']; ?>
+            </td>
             <td><?=$dt['pagini'];."-".$dt['nompag']; ?></td>
             <td><?=$cant[0]['cant']; ?></td>
             <td>
@@ -54,17 +56,39 @@
                 <?php } ?>
                 <a href="home.php?pg=110&ope=edit&idper=<?=$dt['idper']?>" title="Editar">Editar</a>
                 <i class="fa-solid fa-list-check" data-bs-toggle="modal" data-bs-target="#MdPg<?=$dt['idper'];?>"></i>
+                <div class="modal fade" id="MdPg<?=$dt['idper'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                    Perfil <?=$dt['nomper']; ?>
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancelar"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <?php if($datPg){ foreach($datPg as $dtpg){
+                                        $mper->setIdper($dt['idper']);
+                                        $mper->setIdpag($dt['idpag']);
+                                        $chkpg = $mper->getCheckedpg();
+                                    ?>
+                                        <div class="form-group col-md-6">
+                                            <input type="checkbox" name="idpag[]" value="<?=$dtpg['idpag']?>" <?php if($chkpg && $chkpg[0]['cant']>0) echo 'checked';?>>
+                                            <?=$dtpg['idpag']." - ".$dtpg['nompag']; ?>
+                                        </div>
+                                    <?php }} ?>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </td>
         </tr>
         <?php }} ?>
     </tbody>
 </table>
-<div class="modal fade" id="MdPg<?=$dt['idper'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <h5 class="modal-title" id="exampleModalLabel">
-                
-            </h5>
-        </div>
-    </div>
-</div>
+<script type="text/javascript">ocultar(<?=$m;?>)</script>
