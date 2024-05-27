@@ -11,44 +11,33 @@ class Mccj {
 	function getIdccj(){
 		return $this->idccj;
 	}
-
 	function getIdprd(){
 		return $this->idprd;
 	}
-
 	function getIdpsn(){
 		return $this->idpsn;
 	}
-
 	function getTpoccj(){
 		return $this->tpoccj;
 	}
-
-	
-
 	// Métodos set
 	function setIdccj($idccj){
 		$this->idccj = $idccj;
 	}
-
 	function setIdprd($idprd){
 		$this->idprd = $idprd;
 	}
-
 	function setIdpsn($idpsn){
 		$this->idpsn = $idpsn;
 	}
-
 	function setTpoccj($tpoccj){
 		$this->tpoccj = $tpoccj;
 	}
-
-	
-
 	// Métodos públicos
 	public function getAll(){
 		$res = NULL;
-        $sql = "SELECT * FROM concejo";
+        $sql = "SELECT cj.idccj, cj.tpoccj, pr.idprd, pr.finiprd, pr.ffinprd, ps.idpsn, ps.nompsn, ps.apepsn, ps.docpsn, ps.tpdcpsn, ps.telpsn, ps.emapsn, ps.idper, ps.genpsn, tpv.idval, tpv.nomval 
+		FROM concejo AS cj INNER JOIN periodo AS pr ON cj.idprd=pr.idprd INNER JOIN persona AS ps ON cj.idpsn=ps.idpsn INNER JOIN valor AS tpv ON cj.tpoccj=tpv.idval";
         $modelo = new Conexion();
         $conexion = $modelo->get_conexion();
         $result = $conexion->prepare($sql);
@@ -59,7 +48,8 @@ class Mccj {
 
     public function getOne(){
         $res = NULL;
-        $sql = "SELECT * FROM concejo WHERE idccj=:idccj";
+		$sql = "SELECT cj.idccj, cj.tpoccj, pr.idprd, pr.finiprd, pr.ffinprd, ps.idpsn, ps.nompsn, ps.apepsn, ps.docpsn, ps.tpdcpsn, ps.telpsn, ps.emapsn, ps.idper, ps.genpsn, tpv.idval, tpv.nomval 
+		FROM concejo AS cj INNER JOIN periodo AS pr ON cj.idprd=pr.idprd INNER JOIN persona AS ps ON cj.idpsn=ps.idpsn INNER JOIN valor AS tpv ON cj.tpoccj=tpv.idval WHERE cj.idccj=:idccj";
         $modelo = new Conexion();
         $conexion = $modelo->get_conexion();
         $result = $conexion->prepare($sql);

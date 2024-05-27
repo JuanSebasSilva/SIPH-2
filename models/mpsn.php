@@ -123,6 +123,17 @@ class Mpsn{
         return $res;
     }
 
+    public function getVal(){
+        $res = NULL;
+        $modelo = new Conexion();
+        $conexion = $modelo->get_conexion();
+        $sql = "SELECT idval, nomval, iddom FROM valor";
+        $result = $conexion->prepare($sql);
+        $result->execute();
+        $res = $result->fetchall(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
     public function save(){
         $sql = "INSERT INTO persona(nompsn, apepsn, docpsn, tpdcpsn, telpsn, emapsn, passpsn, actpsn, idper, genpsn, fhnapsn) 
                 VALUES (:nompsn, :apepsn, :docpsn, :tpdcpsn, :telpsn, :emapsn, :passpsn, :actpsn, :idper, :genpsn, :fhnapsn)";

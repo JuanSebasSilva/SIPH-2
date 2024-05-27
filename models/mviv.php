@@ -41,10 +41,12 @@ class Mviv{
 	//metodos publicos
 	public function getAll(){
 		$res = NULL;
-		$sql = "SELECT v.idpsn, v.tpoviv, w.idviv AS cd, w.nomviv AS nd
+		/* $sql = "SELECT v.idpsn, v.tpoviv, w.idviv AS cd, w.nomviv AS nd
 		, v.idviv AS cm,v.nomviv AS nm FROM
 		 vivienda AS v LEFT JOIN vivienda AS w ON v.depviv
-		 =w.idviv";
+		 =w.idviv"; */
+		$sql = "SELECT vi.idviv AS viiv, vi.tpoviv AS vitp, vi.nomviv AS vinv, vv.idviv AS vviv, vv.tpoviv AS vvtv, vv.nomviv AS vvnv, v.idval, v.nomval, ps.idpsn, ps.nompsn, ps.apepsn, ps.docpsn, ps.tpdcpsn, ps.telpsn, ps.emapsn, ps.genpsn, ps.fhnapsn 
+		FROM vivienda AS vi INNER JOIN vivienda AS vv ON vi.depviv=vv.idviv INNER JOIN valor AS v ON vi.tpoviv=v.idval INNER JOIN persona AS ps ON vi.idpsn=ps.idpsn";
 		$modelo = new Conexion();
 		$conexion = $modelo->get_conexion();
 		$result = $conexion->prepare($sql);
@@ -54,7 +56,8 @@ class Mviv{
 	}
 	public function getOne(){
 		$res = NULL;
-		$sql = "SELECT * FROM vivienda WHERE idviv=:idviv";
+		$sql = "SELECT vi.idviv AS viiv, vi.tpoviv AS vitp, vi.nomviv AS vinv, vv.idviv AS vviv, vv.tpoviv AS vvtv, vv.nomviv AS vvnv, v.idval, v.nomval, ps.idpsn, ps.nompsn, ps.apepsn, ps.docpsn, ps.tpdcpsn, ps.telpsn, ps.emapsn, ps.genpsn, ps.fhnapsn 
+		FROM vivienda AS vi INNER JOIN vivienda AS vv ON vi.depviv=vv.idviv INNER JOIN valor AS v ON vi.tpoviv=v.idval INNER JOIN persona AS ps ON vi.idpsn=ps.idpsn WHERE vi.idviv=:idviv";
 		$modelo = new Conexion();
 		$conexion = $modelo->get_conexion();
 		$result = $conexion->prepare($sql);

@@ -52,7 +52,8 @@ class Mdoc{
     //metodos publicos
     public function getAll(){
         $res = NULL;
-        $sql = "SELECT * FROM documentacion";
+        $sql = "SELECT dc.iddoc, dc.nomdoc, dc.fhdoc, dc.rutdoc, dc.tpodoc, ps.idpsn, ps.nompsn, ps.apepsn, ps.docpsn, ps.tpdcpsn, ps.telpsn, ps.emapsn, ps.idper, ps.genpsn, tpd.idval, tpd.nomval 
+        FROM documentacion AS dc INNER JOIN persona AS ps ON dc.idpsn=ps.idpsn INNER JOIN valor AS tpd ON dc.tpodoc=tpd.idval";
         $modelo = new Conexion();
         $conexion = $modelo->get_conexion();
         $result = $conexion->prepare($sql);
@@ -63,7 +64,8 @@ class Mdoc{
 
     public function getOne(){
         $res = NULL;
-        $sql = "SELECT * FROM documentacion WHERE iddoc=:iddoc";
+        $sql = "SELECT dc.iddoc, dc.nomdoc, dc.fhdoc, dc.rutdoc, dc.tpodoc, ps.idpsn, ps.nompsn, ps.apepsn, ps.docpsn, ps.tpdcpsn, ps.telpsn, ps.emapsn, ps.idper, ps.genpsn, tpd.idval, tpd.nomval 
+        FROM documentacion AS dc INNER JOIN persona AS ps ON dc.idpsn=ps.idpsn INNER JOIN valor AS tpd ON dc.tpodoc=tpd.idval WHERE dc.iddoc=:iddoc";
         $modelo = new Conexion();
         $conexion = $modelo->get_conexion();
         $result = $conexion->prepare($sql);
@@ -93,7 +95,7 @@ class Mdoc{
     }
 
     public function edit(){
-        $sql = "UPDATE documentacion SET  nomdoc=:nomdoc, idpsn=:idpsn, fhdoc=:fhdoc, rutdoc=:rutdoc, tpodoc=:tpodoc WHERE iddoc=:iddoc";
+        $sql = "UPDATE documentacion SET nomdoc=:nomdoc, idpsn=:idpsn, fhdoc=:fhdoc, rutdoc=:rutdoc, tpodoc=:tpodoc WHERE iddoc=:iddoc";
         $modelo = new Conexion();
         $conexion = $modelo->get_conexion();
         $result = $conexion->prepare($sql);

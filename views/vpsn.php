@@ -14,13 +14,17 @@
         </div>
         <div class="form-group">
             <label for="tpdcpsn">Tipo de documento</label>
-            <input type="text" name="tpdcpsn" id="tpdcpsn" value="<?php if($dtOne && $dtOne[0]['tpdcpsn']) echo $dtOne[0]['tpdcpsn'];?>">
+            <select name="iddom" id="tpdcpsn">
+                <option value="0"></option>
+                <?php if($datTp){ foreach($datTp as $dtp){?>
+                <option value="<?=$dtp['idval']?>">
+                    <?=$dtp['nomval'];?>
+                </option>
+                <?php }} ?>
+            </select>
         </div>
         <div class="form-group">
             <label for="docpsn">Numero de documento</label>
-            <select>
-                <option value="0">Seleccione un tipo de documento</option>
-            </select>
             <input type="text" name="docpsn" id="docpsn" value="<?php if($dtOne && $dtOne[0]['docpsn']) echo $dtOne[0]['docpsn']; ?>">
         </div>
         <div class="form-group">
@@ -30,6 +34,17 @@
         <div class="form-group">
             <label for="emapsn">Correo</label>
             <input type="text" name="emapsn" id="emapsn" value="<?php if($dtOne && $dtOne[0]['emapsn']) echo $dtOne[0]['emapsn']; ?>">
+        </div>
+        <div class="form-group">
+            <label for="genpsn">Genero</label>
+            <select>
+                <option value="0"></option>
+                <?php if($datGn){ foreach($datGn as $dtp){?>
+                <option value="<?=$dtp['idval']?>">
+                    <?=$dtp['nomval'];?>
+                </option>
+                <?php }} ?>
+            </select>
         </div>
         <div class="form-group">
             <br>
@@ -58,8 +73,7 @@
             <td><?=$dt['idpsn']; ?></td>
             <td><?=$dt['nompsn']; ?></td>
             <td><?=$dt['apepsn']; ?></td>
-            <td><?=$dt['tpdcpsn']; ?></td>
-            <td><?=$dt['docpsn']; ?></td>
+            <td><?=$dt['tpdcpsn'].". ".$dt['docpsn'];?></td>
             <td><?=$dt['telpsn']; ?></td>
             <td><?=$dt['emapsn']; ?></td>
             <td>

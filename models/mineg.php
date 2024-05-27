@@ -163,3 +163,5 @@ class Mineg{
 	}
 }
 ?>
+SELECT ie.idineg, ie.tpoineg, ie.fhineg, ie.cctineg, ie.desineg, ie.valineg, ie.sopineg, tpie.idval, tpie.nomval, ps.idpsn, ps.nompsn, ps.apepsn, ps.docpsn, ps.tpdcpsn, ps.emapsn, ps.idper, pr.idprd, pr.finiprd, pr.ffinprd 
+FROM ingegr AS ie INNER JOIN valor AS tpie ON ie.tpoineg=tpie.idval INNER JOIN persona AS ps ON ie.idpsn=ps.idpsn INNER JOIN periodo AS pr ON ie.idprd=pr.idprd

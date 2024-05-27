@@ -48,7 +48,8 @@ class Mnot{
 	//metodos 
 	   function getAll(){
 		$res = NULL;
-		$sql = "SELECT * FROM notificacion";
+		$sql = "SELECT nt.idnot, nt.titnot, nt.fhnot, nt.ffinnot, nt.desnot, ps.idpsn, ps.nompsn, ps.apepsn, ps.docpsn, ps.tpdcpsn, ps.idper 
+		FROM notificacion AS nt INNER JOIN persona AS ps ON nt.idpsn=ps.idpsn";
 		$modelo = new Conexion();
 		$conexion = $modelo->get_conexion();
 		$result = $conexion->prepare($sql);
@@ -58,7 +59,8 @@ class Mnot{
 	}
 	 function getOne(){
 		$res = NULL;
-		$sql = "SELECT * FROM notificacion WHERE idnot=:idnot";
+		$sql = "SELECT nt.idnot, nt.titnot, nt.fhnot, nt.ffinnot, nt.desnot, ps.idpsn, ps.nompsn, ps.apepsn, ps.docpsn, ps.tpdcpsn, ps.idper 
+		FROM notificacion AS nt INNER JOIN persona AS ps ON nt.idpsn=ps.idpsn WHERE nt.idnot=:idnot";
 		$modelo = new Conexion();
 		$conexion = $modelo->get_conexion();
 		$result = $conexion->prepare($sql);

@@ -16,7 +16,6 @@
                 </option>
                 <?php }} ?>
             </select>
-            <input type="number" name="pagini" id="pagini" value="<?php if($dtOne && $dtOne[0]['pagini']) echo $dtOne[0]['pagini']; ?>" required>
         </div>
         <div class="form-group">
             <br>
@@ -63,25 +62,26 @@
                                 <h5 class="modal-title" id="exampleModalLabel">
                                     Perfil <?=$dt['nomper']; ?>
                                 </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancelar"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
-                                    <?php if($datPg){ foreach($datPg as $dtpg){
+                                    <?php 
+                                        if($datPg){ foreach($datPg as $dtpg){
                                         $mper->setIdper($dt['idper']);
                                         $mper->setIdpag($dt['idpag']);
                                         $chkpg = $mper->getCheckedpg();
                                     ?>
-                                        <div class="form-group col-md-6">
-                                            <input type="checkbox" name="idpag[]" value="<?=$dtpg['idpag']?>" <?php if($chkpg && $chkpg[0]['cant']>0) echo 'checked';?>>
-                                            <?=$dtpg['idpag']." - ".$dtpg['nompag']; ?>
-                                        </div>
+                                            <div class="form-group col-md-6">
+                                                <input type="checkbox" name="idpag[]" value="<?=$dtpg['idpag']?>" <?php if($chkpg && $chkpg[0]['cant']>0) echo 'checked';?>>
+                                                <?=$dtpg['idpag']." - ".$dtpg['nompag']; ?>
+                                            </div>
                                     <?php }} ?>
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-primary">Save</button>
                             </div>
                         </div>
                     </div>

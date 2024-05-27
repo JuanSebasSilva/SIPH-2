@@ -1,5 +1,9 @@
 <?php
     include("models/mpsn.php");
+    include("models/mval.php");
+    $mpsn = new Mval();
+    $datTp = $mpsn->getVal(1);
+    $datGn = $mpsn->getVal(2);
 
     $idpsn = isset($_REQUEST['idpsn']) ? $_REQUEST['idpsn']:NULL;
     $nompsn = isset($_POST['nompsn']) ? $_POST['nompsn']:NULL;
@@ -41,5 +45,4 @@
     }
 
     $dat = $mpsn->getAll();
-
 ?>

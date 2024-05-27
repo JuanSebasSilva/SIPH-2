@@ -35,7 +35,8 @@ class Mvar {
 	//metodos publicos
     public function getAll(){
         $res = NULL;
-        $sql = "SELECT * FROM vario";
+        $sql = "SELECT va.idvar, va.nomvar, va.tpovar, v.idval, v.nomval, vv.idviv, vv.idpsn, vv.tpoviv, vv.nomviv, vv.depviv 
+        FROM vario AS va INNER JOIN valor AS v ON va.tpovar=v.idval INNER JOIN vivienda AS vv ON va.idviv=vv.idviv";
         $modelo = new Conexion();
 		$conexion = $modelo->get_conexion();
 		$result = $conexion->prepare($sql);
@@ -45,7 +46,8 @@ class Mvar {
     }
 
     public function getOne(){
-        $sql = "SELECT * FROM vario WHERE idvar=:idvar";
+        $sql = "SELECT va.idvar, va.nomvar, va.tpovar, v.idval, v.nomval, vv.idviv, vv.idpsn, vv.tpoviv, vv.nomviv, vv.depviv 
+        FROM vario AS va INNER JOIN valor AS v ON va.tpovar=v.idval INNER JOIN vivienda AS vv ON va.idviv=vv.idviv WHERE va.idvar=:idvar";
         $modelo = new Conexion();
 		$conexion = $modelo->get_conexion();
 		$result = $conexion->prepare($sql);
@@ -100,4 +102,3 @@ class Mvar {
     }
 }
 ?>
-

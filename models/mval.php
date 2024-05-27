@@ -44,7 +44,7 @@ class Mval{
 	//metodos publicos
 	public function getAll(){
 		$res = NULL;
-		$sql = "SELECT * FROM valor";
+		$sql = "SELECT v.idval, v.nomval, v.iddom, v.parval, v.actval, d.iddom, d.nomdom FROM valor AS v INNER JOIN dominio AS d ON v.iddom=d.iddom";
 		$modelo = new Conexion();
 		$conexion = $modelo->get_conexion();
 		$result = $conexion->prepare($sql);
@@ -54,7 +54,7 @@ class Mval{
 	}
 	public function getOne(){
 		$res = NULL;
-        $sql = "SELECT * FROM valor WHERE idval=:idval";
+        $sql = "SELECT v.idval, v.nomval, v.iddom, v.parval, v.actval, d.iddom, d.nomdom FROM valor AS v INNER JOIN dominio AS d ON v.iddom=d.iddom WHERE v.idval=:idval";
 		$modelo = new Conexion();
 		$conexion = $modelo->get_conexion();
 		$result = $conexion->prepare($sql);
@@ -107,11 +107,13 @@ class Mval{
 		$result->execute();
 	}
 
-    public function getTip($idval){
-		$sql = "SELECT idval, nomval, iddom FROM valor";
+    public function getVal($iddom){
+		$sql = "SELECT idval, nomval, iddom FROM valor WHERE iddom=:iddom ORDER BY nomval";
         $modelo = new Conexion();
         $conexion = $modelo->get_conexion();
         $result = $conexion->prepare($sql);
+		$iddom = $this->getIddom();
+		$result->bindParam(":iddom", $iddom);
         $result->execute();
         $res = $result->fetchall(PDO::FETCH_ASSOC);
         return $res;

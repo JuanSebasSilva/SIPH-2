@@ -52,7 +52,7 @@ class Mper{
         $res = NULL;
         $modelo = new Conexion();
         $conexion = $modelo->get_conexion();
-        $sql = "SELECT idpag, nompag, icopag FROM pagina WHERE 1";
+        $sql = "SELECT idpag, nompag, icopag FROM pagina";
         $result->prepare($sql);
         $result->execute();
         $res = $result->fetchall(PDO::FETCH_ASSOC);
