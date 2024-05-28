@@ -143,7 +143,8 @@ INSERT INTO `pagina` (`idpag`, `nompag`, `rutpag`, `mospag`, `ordpag`, `icopag`)
 (102, 'Pagos', 'views/vineg.php', 1, 3, 'fa-solid fa-hand-holding-dollar'),
 (104, 'Notificacion', 'views/vnot.php', 1, 2, 'fa-regular fa-file'),
 (107, 'Documentacion', 'views/vdoc.php', 1, 1, 'fa-regular fa-bell'),
-(110, 'Perfil', 'views/vper.php', 1, 5, NULL);
+(110, 'Perfil', 'views/vper.php', 1, 5, 'fa-solid fa-circle-user'),
+(101, 'Persona', 'views/vpsn.php', 1, 6, 'fa-solid fa-users');
 
 -- --------------------------------------------------------
 

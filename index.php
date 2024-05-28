@@ -32,7 +32,7 @@
                 <label for="paspsn">Contraseña</label>
                 <input type="password" id="paspsn" name="pss" required>
                 <?php
-                    $err = isset($_GET['error']) ? $_GET['error']:NULL;
+                    $error = isset($_GET['error']) ? $_GET['error']:NULL;
                     if($error == 'ok'){
                         echo "<h2>Datos incorrectos</h2>";
                     }

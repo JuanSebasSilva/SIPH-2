@@ -29,12 +29,14 @@ function valida($usu, $pas){
 }
 
 function reg(){
-    echo "<script>window.location = '../index.php?err=oK';</script>"
+    echo "<script>window.location = '../index.php?error=oK';</script>";
 }
 
 function ingr($usu, $pas){
     $res = NULL;
     $pas = sha1(md5('pE*r'.$pas));
+    echo $pas;
+    die();
     $modelo = new Conexion();
     $conexion = $modelo->get_conexion();
     $sql = "SELECT p.idpsn, p.nompsn, p.apepsn, p.docpsn, pf.nomper, pf.pagini FROM persona AS p INNER JOIN perfil AS pf ON p.idper=pf.idper WHERE p.actpsn=1 AND p.emapsn=:emapsn AND p.passpsn=:passpsn";
