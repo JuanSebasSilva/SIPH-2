@@ -33,7 +33,7 @@
                 <input type="password" id="paspsn" name="pss" required>
                 <?php
                     $error = isset($_GET['error']) ? $_GET['error']:NULL;
-                    if($error == 'ok'){
+                    if($error == 'oK'){
                         echo "<h2>Datos incorrectos</h2>";
                     }
                 ?>

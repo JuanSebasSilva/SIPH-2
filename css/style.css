@@ -136,6 +136,24 @@ nav {
     background-color: red;
 }
 
+.contenedorvistas{
+    position: fixed;
+    margin-left: 20%;
+    top: 200px;
+    height: 80%;
+    width: 100%;
+    background-color: red;
+}
+@media screen and  (min-width: 768px) {
+    .contenedorvistas{
+        position: fixed;
+        top: 13%;
+        height: 78%;
+        width: 80%;
+        background-color: red;
+    }
+}
+
 /* Luis Dueñas */
 
 /* Sebastian Silva */

@@ -32,7 +32,7 @@
             }
         ?>
     </div>
-    <main class="content">
+    <main class="contenedorvistas">
         <?php
             $rut = validar($pg);
             if($rut){
