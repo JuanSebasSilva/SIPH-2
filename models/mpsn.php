@@ -141,27 +141,27 @@ class Mpsn{
         $conexion = $modelo->get_conexion();
         $result = $conexion->prepare($sql);
         $nompsn = $this->getNompsn();
-        $result->bindParam(":nompsn", $nompsn)
+        $result->bindParam(":nompsn", $nompsn);
         $apepsn = $this->getApepsn();
-        $result->bindParam(":apepsn", $apepsn)
+        $result->bindParam(":apepsn", $apepsn);
         $docpsn = $this->getDocpsn();
-        $result->bindParam(":docpsn", $docpsn)
+        $result->bindParam(":docpsn", $docpsn);
         $tpdcpsn = $this->getTpdcpsn();
-        $result->bindParam(":tpdcpsn", $tpdcpsn)
+        $result->bindParam(":tpdcpsn", $tpdcpsn);
         $telpsn = $this->getTelpsn();
-        $result->bindParam(":telpsn", $telpsn)
+        $result->bindParam(":telpsn", $telpsn);
         $emapsn = $this->getEmapsn();
-        $result->bindParam(":emapsn", $emapsn)
+        $result->bindParam(":emapsn", $emapsn);
         $passpsn = $this->getPasspsn();
-        $result->bindParam(":passpsn", $passpsn)
+        $result->bindParam(":passpsn", $passpsn);
         $actpsn = $this->getActpsn();
-        $result->bindParam(":actpsn", $actpsn)
+        $result->bindParam(":actpsn", $actpsn);
         $idper = $this->getIdper();
-        $result->bindParam(":idper", $idper)
+        $result->bindParam(":idper", $idper);
         $genpsn = $this->getGenpsn();
-        $result->bindParam(":genpsn", $genpsn)
+        $result->bindParam(":genpsn", $genpsn);
         $fhnapsn = $this->getFhnapsn();
-        $result->bindParam(":fhnapsn", $fhnapsn)
+        $result->bindParam(":fhnapsn", $fhnapsn);
         $result->execute();
     }
 
@@ -172,29 +172,29 @@ class Mpsn{
         $conexion = $modelo->get_conexion();
         $result = $conexion->prepare($sql);
         $idpsn = $this->getIdpsn();
-        $result->bindParam(":idpsn", $idpsn)
+        $result->bindParam(":idpsn", $idpsn);
         $nompsn = $this->getNompsn();
-        $result->bindParam(":nompsn", $nompsn)
+        $result->bindParam(":nompsn", $nompsn);
         $apepsn = $this->getApepsn();
-        $result->bindParam(":apepsn", $apepsn)
+        $result->bindParam(":apepsn", $apepsn);
         $docpsn = $this->getDocpsn();
-        $result->bindParam(":docpsn", $docpsn)
+        $result->bindParam(":docpsn", $docpsn);
         $tpdcpsn = $this->getTpdcpsn();
-        $result->bindParam(":tpdcpsn", $tpdcpsn)
+        $result->bindParam(":tpdcpsn", $tpdcpsn);
         $telpsn = $this->getTelpsn();
-        $result->bindParam(":telpsn", $telpsn)
+        $result->bindParam(":telpsn", $telpsn);
         $emapsn = $this->getEmapsn();
-        $result->bindParam(":emapsn", $emapsn)
+        $result->bindParam(":emapsn", $emapsn);
         $passpsn = $this->getPasspsn();
-        $result->bindParam(":passpsn", $passpsn)
+        $result->bindParam(":passpsn", $passpsn);
         $actpsn = $this->getActpsn();
-        $result->bindParam(":actpsn", $actpsn)
+        $result->bindParam(":actpsn", $actpsn);
         $idper = $this->getIdper();
-        $result->bindParam(":idper", $idper)
+        $result->bindParam(":idper", $idper);
         $genpsn = $this->getGenpsn();
-        $result->bindParam(":genpsn", $genpsn)
+        $result->bindParam(":genpsn", $genpsn);
         $fhnapsn = $this->getFhnapsn();
-        $result->bindParam(":fhnapsn", $fhnapsn)
+        $result->bindParam(":fhnapsn", $fhnapsn);
         $result->execute();
     }
 

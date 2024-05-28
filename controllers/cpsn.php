@@ -17,6 +17,7 @@
     $idper = isset($_POST['idper']) ? $_POST['idper']:NULL;
     $genpsn = isset($_POST['genpsn']) ? $_POST['genpsn']:NULL;
     $fhnapsn = isset($_POST['fhnapsn']) ? $_POST['fhnapsn']:NULL;
+    $ope = isset($_REQUEST['ope']) ? $_REQUEST['ope']:NULL;
 
     $mpsn = new Mpsn();
     $mpsn->setIdpsn($idpsn);
