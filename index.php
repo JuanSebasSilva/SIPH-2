@@ -29,8 +29,8 @@
                 <h3>Inicio de sesion</h3>
                 <label for="emapsn">Correo Electronico</label>
                 <input type="email" id="emapsn" name="usu" required>
-                <label for="paspsn">Contraseña</label>
-                <input type="password" id="paspsn" name="pss" required>
+                <label for="passpsn">Contraseña</label>
+                <input type="password" id="passpsn" name="pss" required>
                 <?php
                     $error = isset($_GET['error']) ? $_GET['error']:NULL;
                     if($error == 'oK'){
